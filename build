@@ -15,7 +15,6 @@ echo "Detected architecture: $ARCH."
 docker build \
   --build-arg ARCH=$ARCH \
   --build-arg OPENSKYIMAGER_ARCH=$OPENSKYIMAGER_ARCH \
-  --build-arg VERSION=$VERSION \
   --tag astroswarm/openskyimager-$ARCH:$VERSION \
   --tag astroswarm/openskyimager-$ARCH:latest \
  ./
