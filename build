@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+set -e
+
+ARCH=`uname -m`
+VERSION=1.11
+
+OPENSKYIMAGER_ARCH=$ARCH
+if [ $ARCH = "x86_64" ]; then
+  OPENSKYIMAGER_ARCH=amd64
+elif [ $ARCH = "armv7l" ]; then
+  OPENSKYIMAGER_ARCH=armhf
+fi
+
+echo "Detected architecture: $ARCH."
+docker build \
+  --build-arg ARCH=$ARCH \
+  --build-arg OPENSKYIMAGER_ARCH=$OPENSKYIMAGER_ARCH \
+  --build-arg VERSION=$VERSION \
+  --tag astroswarm/openskyimager-$ARCH:$VERSION \
+  --tag astroswarm/openskyimager-$ARCH:latest \
+ ./
+
+echo "Would you like to release this image now (y/n)?"
+read release
+if [ $release = "y" ]; then
+  echo "Pushing to AstroSwarm registry."
+  docker push astroswarm/openskyimager-$ARCH:$VERSION
+  docker push astroswarm/openskyimager-$ARCH:latest
+fi
