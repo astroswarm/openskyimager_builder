@@ -29,8 +29,8 @@ ARG OPENSKYIMAGER_ARCH
 
 # Build
 WORKDIR /tmp
-RUN wget http://download.cloudmakers.eu/atikccd-1.11-$OPENSKYIMAGER_ARCH.deb
-RUN dpkg -i atikccd-1.11-$OPENSKYIMAGER_ARCH.deb; apt-get -fy install
+RUN wget http://download.cloudmakers.eu/atikccd-1.13-$OPENSKYIMAGER_ARCH.deb
+RUN dpkg -i atikccd-1.13-$OPENSKYIMAGER_ARCH.deb; apt-get -fy install
 RUN git clone https://github.com/freerobby/OpenSkyImager.git /OpenSkyImager
 RUN mkdir /OpenSkyImager/build
 WORKDIR /OpenSkyImager/build
