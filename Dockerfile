@@ -11,7 +11,6 @@ RUN apt-get -y update && apt-get -y install \
 RUN apt-get -y update && apt-get -y install \
   build-essential \
   cmake \
-  fxload \
   git \
   libcfitsio3-dev \
   libglib2.0-0 \
@@ -21,6 +20,7 @@ RUN apt-get -y update && apt-get -y install \
   libgtk-3-0 \
   libgtk-3-dev \
   libudev-dev \
+  libusb-1.0-0 \
   sudo \
   wget
 
