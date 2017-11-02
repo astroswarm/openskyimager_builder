@@ -1,0 +1,13 @@
+---
+image: "astroswarm/openskyimager:latest"
+manifests:
+  -
+    image: "astroswarm/openskyimager-x86_64:latest"
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: "astroswarm/openskyimager-armv7l:latest"
+    platform:
+      architecture: arm64
+      os: linux
